@@ -1,4 +1,29 @@
 <div class="footer">
-    Powered by <a href="https://gohugo.io/">Hugo</a> with
-    <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>. 
+    {{ with .Site.Params.copyrightName }}
+    <span>© {{ now.Format "2006" }} {{ . }}</span>
+    {{ end }}
+
+    {{ if or .Site.Params.contactEmail .Site.Params.githubUrl .Site.Params.linkedinUrl }}
+    <span class="separator">|</span>
+    {{ end }}
+
+    {{ if .Site.Params.contactEmail }}
+    <a href="mailto:{{ .Site.Params.contactEmail }}">Email</a>
+    {{ end }}
+
+    {{ if and .Site.Params.githubUrl (or .Site.Params.contactEmail .Site.Params.linkedinUrl) }}
+    <span class="separator">·</span>
+    {{ end }}
+
+    {{ if .Site.Params.githubUrl }}
+    <a href="{{ .Site.Params.githubUrl }}">GitHub</a>
+    {{ end }}
+
+    {{ if and .Site.Params.linkedinUrl (or .Site.Params.contactEmail .Site.Params.githubUrl) }}
+    <span class="separator">·</span>
+    {{ end }}
+
+    {{ if .Site.Params.linkedinUrl }}
+    <a href="{{ .Site.Params.linkedinUrl }}">LinkedIn</a>
+    {{ end }}
 </div>

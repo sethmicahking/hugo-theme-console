@@ -3,7 +3,7 @@
 <h1>About</h1>
 
 <p>
-Console is a minimal, responsive and light theme for Hugo inspired by Linux console.  <a href="about/">(more)</a>
+{{ .Site.Params.about }} <a href="about/">(more)</a>
 </p>
 <br/>
 
@@ -23,6 +23,7 @@ Console is a minimal, responsive and light theme for Hugo inspired by Linux cons
 {{ end }}
 </div>
 
+{{ if .Site.Params.showPhotos }}
 <h1>Latest photos</h1>
 
 <div class="image-grid">
@@ -38,5 +39,6 @@ Console is a minimal, responsive and light theme for Hugo inspired by Linux cons
     {{ end }}
 {{ end }}
 </div>
+{{ end }}
 
 {{ end }}
